@@ -40,8 +40,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(8,8,8,.97);
-  border-bottom: 1px solid #292929;
+  background: rgba(8, 8, 8, 0.98);
+  border-bottom: 2px solid #A71920;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
 }
 
 .header-inner {
@@ -55,10 +57,16 @@ header {
 }
 
 .logo {
-  font-size: 23px;
-  font-weight: bold;
-  letter-spacing: 4px;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img {
+  display: block;
+  width: 250px;
+  height: auto;
+  max-width: 100%;
 }
 
 .logo span { color: var(--red); }
@@ -71,13 +79,20 @@ nav {
 }
 
 nav a {
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #ccc;
-  transition: .2s;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: #E5E0D7;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color .3s ease;
+  position: relative;
+  padding: 8px 0;
 }
 
-nav a:hover { color: #e34a50; }
+nav a:hover {
+  color: #D8B56D;
+}
+
 
 .hero {
   min-height: 690px;
@@ -388,7 +403,9 @@ footer p { margin-top: 8px; }
 
 <header>
   <div class="header-inner">
-    <a class="logo" href="#">ARCHIVO <span>ANIMUS</span></a>
+    <a class="logo" href="#">
+  <img src="imagenes/logo-archivo-animus.png" alt="Archivo Animus">
+</a>
 
     <nav>
       <a href="#">INICIO</a>
