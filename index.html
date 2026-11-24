@@ -98,18 +98,119 @@ nav a:hover {
   min-height: 690px;
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.25)),
-    linear-gradient(0deg, #080808, transparent 35%),
-    url("imagenes/fondos/Captura%20de%20pantalla%202026-11-18%20033439.png")
-    center 35% / cover no-repeat;
+  justify-content: center;
+  text-align: center;
+background-image:
+  linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.65)),
+  url("imagenes/fondos/portada-principal.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero-content {
-  max-width: 1400px;
   width: 100%;
+  max-width: 1100px;
   margin: auto;
-  padding: 90px 8%;
+  padding: 55px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-symbol {
+  margin-bottom: 12px;
+}
+
+.hero-symbol img {
+  display: block;
+  width: 125px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 12px rgba(180, 35, 43, 0.5));
+}
+
+.hero-title {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 7vw, 88px);
+  color: #F5F0E8;
+  letter-spacing: 5px;
+  line-height: 1;
+  font-weight: normal;
+  text-shadow: 0 4px 15px #000;
+}
+
+.hero-title span {
+  display: block;
+  color: #A71920;
+  margin-top: 5px;
+}
+
+.hero-divider {
+  width: min(580px, 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.hero-divider span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, #D8B56D);
+}
+
+.hero-divider span:last-child {
+  background: linear-gradient(90deg, #D8B56D, transparent);
+}
+
+.hero-divider i {
+  color: #D8B56D;
+  font-size: 23px;
+  font-style: normal;
+}
+
+.hero-tagline {
+  color: #E5C98B;
+  font-family: Georgia, serif;
+  font-size: clamp(19px, 3vw, 29px);
+  letter-spacing: 5px;
+  font-weight: normal;
+  margin: 0;
+  text-shadow: 0 3px 10px #000;
+}
+
+.hero-description {
+  color: #F5F0E8;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
+  text-shadow: 0 3px 10px #000;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 17px 38px;
+  background: linear-gradient(#B4232B, #821820);
+  border: 1px solid #D8B56D;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: .3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,.4);
+}
+
+.hero-button:hover {
+  background: #C62828;
+  transform: translateY(-3px);
 }
 
 .eyebrow {
@@ -422,18 +523,42 @@ footer p { margin-top: 8px; }
 
 <main>
 
-  <div class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">UNA ENCICLOPEDIA DE ASSASSIN'S CREED</div>
-      <h1>LA MEMORIA DE LA <span>HERMANDAD</span></h1>
-      <p>
-        Explora los secretos, personajes, civilizaciones y acontecimientos
-        que han marcado la historia de Assassin's Creed.
-        El pasado tiene mucho que contar.
-      </p>
-      <a class="button" href="#juegos">DESCUBRIR EL ARCHIVO</a>
-    </div>
+ <div class="hero">
+  <div class="hero-content">
+
+  <div class="hero-symbol">
+  <img src="imagenes/fondos/insignia-animus.png" alt="Insignia de Archivo Animus">
+</div>
+
+  <div class="hero-title">
+    ARCHIVO <span>ANIMUS</span>
   </div>
+
+  <div class="hero-divider">
+    <span></span>
+    <i>◇</i>
+    <span></span>
+  </div>
+
+  <h2 class="hero-tagline">LA HISTORIA DE LA HERMANDAD</h2>
+
+  <div class="hero-divider">
+    <span></span>
+    <i>◇</i>
+    <span></span>
+  </div>
+
+  <p class="hero-description">
+    GUÍAS, ANÁLISIS Y CONTENIDO SOBRE TODOS LOS JUEGOS
+    DEL UNIVERSO ASSASSIN'S CREED
+  </p>
+
+  <a class="hero-button" href="#juegos">
+    EXPLORAR LA SAGA <span>→</span>
+  </a>
+
+  </div>
+ </div>
 
   <section id="noticias">
     <div class="section-heading">
