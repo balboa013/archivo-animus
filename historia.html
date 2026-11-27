@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archivo Animus | La memoria de la Hermandad</title>
+<meta name="description" content="Enciclopedia de Assassin's Creed. Descubre sus juegos, personajes, historia, secretos y noticias.">
+
+<style>
+:root {
+  --black: #080808;
+  --panel: #141414;
+  --red: #a71920;
+  --white: #f5f5f5;
+  --grey: #aaa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 8, 8, 0.98);
+  border-bottom: 2px solid #A71920;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img {
+  display: block;
+  width: 250px;
+  height: auto;
+  max-width: 100%;
+}
+
+.logo span { color: var(--red); }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 19px;
+}
+
+nav a {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: #E5E0D7;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color .3s ease;
+  position: relative;
+  padding: 8px 0;
+}
+
+nav a:hover {
+  color: #D8B56D;
+}
+
+
+.hero {
+  min-height: 690px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+background-image:
+  linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.65)),
+  url("imagenes/fondos/portada-principal.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 55px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-symbol {
+  margin-bottom: 12px;
+}
+
+.hero-symbol img {
+  display: block;
+  width: 125px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 12px rgba(180, 35, 43, 0.5));
+}
+
+.hero-title {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 7vw, 88px);
+  color: #F5F0E8;
+  letter-spacing: 5px;
+  line-height: 1;
+  font-weight: normal;
+  text-shadow: 0 4px 15px #000;
+}
+
+.hero-title span {
+  display: block;
+  color: #A71920;
+  margin-top: 5px;
+}
+
+.hero-divider {
+  width: min(580px, 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.hero-divider span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, #D8B56D);
+}
+
+.hero-divider span:last-child {
+  background: linear-gradient(90deg, #D8B56D, transparent);
+}
+
+.hero-divider i {
+  color: #D8B56D;
+  font-size: 23px;
+  font-style: normal;
+}
+
+.hero-tagline {
+  color: #E5C98B;
+  font-family: Georgia, serif;
+  font-size: clamp(19px, 3vw, 29px);
+  letter-spacing: 5px;
+  font-weight: normal;
+  margin: 0;
+  text-shadow: 0 3px 10px #000;
+}
+
+.hero-description {
+  color: #F5F0E8;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
+  text-shadow: 0 3px 10px #000;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 17px 38px;
+  background: linear-gradient(#B4232B, #821820);
+  border: 1px solid #D8B56D;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: .3s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,.4);
+}
+
+.hero-button:hover {
+  background: #C62828;
+  transform: translateY(-3px);
+}
+
+.eyebrow {
+  color: #d34a50;
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 82px);
+  line-height: 1.05;
+  max-width: 800px;
+  letter-spacing: 2px;
+}
+
+.hero h1 span { color: var(--red); }
+
+.hero p {
+  color: #ddd;
+  max-width: 600px;
+  margin-top: 25px;
+  font-size: 17px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 25px;
+  background: var(--red);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: .2s;
+}
+
+.button:hover { background: #c62828; }
+
+section {
+  max-width: 1400px;
+  margin: auto;
+  padding: 85px 6%;
+}
+
+.section-heading {
+  margin-bottom: 35px;
+}
+
+.section-heading small {
+  color: #d34a50;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-size: clamp(27px, 4vw, 39px);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+.section-heading p {
+  color: var(--grey);
+  margin-top: 10px;
+  max-width: 650px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 20px;
+}
+
+.news-card {
+  background: var(--panel);
+  border: 1px solid #252525;
+  transition: .25s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--red);
+}
+
+.news-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card:first-child .news-image { height: 260px; }
+
+.news-content { padding: 22px; }
+
+.category {
+  color: #d34a50;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.news-content h3 {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+.news-content p {
+  color: var(--grey);
+  font-size: 13px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 18px;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 4px;
+}
+
+.archive-section {
+  background: #101010;
+  max-width: none;
+}
+
+.archive-inner {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.archive-card {
+  min-height: 390px;
+  position: relative;
+  overflow: hidden;
+  background: #222;
+}
+
+.archive-card img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  display: block;
+  transition: .5s;
+}
+
+.archive-card:hover img { transform: scale(1.06); }
+
+.archive-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  background: linear-gradient(transparent 15%, rgba(0,0,0,.95));
+}
+
+.archive-overlay h3 {
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.archive-overlay p {
+  color: #ccc;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.character-card {
+  background: var(--panel);
+  text-align: center;
+  border: 1px solid #252525;
+}
+
+.character-card img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.character-card div { padding: 20px; }
+
+.character-card h3 {
+  font-size: 21px;
+  letter-spacing: 2px;
+}
+
+.character-card p {
+  color: var(--grey);
+  font-size: 13px;
+}
+
+.universe {
+  text-align: center;
+  background:
+    linear-gradient(rgba(0,0,0,.83), rgba(0,0,0,.9)),
+    url("imagenes/fondos/Captura%20de%20pantalla%202026-11-17%20041523.png")
+    center / cover;
+  max-width: none;
+}
+
+.universe-inner {
+  max-width: 850px;
+  margin: auto;
+}
+
+.universe h2 {
+  font-size: clamp(28px, 5vw, 45px);
+  letter-spacing: 2px;
+}
+
+.universe p {
+  color: #ccc;
+  margin-top: 18px;
+}
+
+footer {
+  border-top: 1px solid #292929;
+  padding: 45px 6%;
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.footer-logo span { color: var(--red); }
+
+footer p { margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+  }
+
+  nav { justify-content: center; }
+
+  .news-grid { grid-template-columns: 1fr 1fr; }
+
+  .news-card:first-child { grid-column: span 2; }
+
+  .archive-grid, .characters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero { min-height: 570px; }
+
+  .hero-content { padding: 65px 7%; }
+
+  nav { gap: 12px; }
+
+  nav a { font-size: 10px; }
+
+  .news-grid, .archive-grid, .characters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card:first-child { grid-column: auto; }
+
+  section { padding: 60px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+  <img src="imagenes/logo-archivo-animus.png" alt="Archivo Animus">
+</a>
+
+    <nav>
+      <a href="#">INICIO</a>
+      <a href="#juegos">JUEGOS</a>
+      <a href="#personajes">PERSONAJES</a>
+      <a href="#historia">HISTORIA</a>
+      <a href="#universo">UNIVERSO</a>
+      <a href="#guias">GUÍAS</a>
+      <a href="#noticias">NOTICIAS</a>
+      <a href="#tienda">TIENDA</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+ <div class="hero">
+  <div class="hero-content">
+
+  <div class="hero-symbol">
+  <img src="imagenes/fondos/insignia-animus.png" alt="Insignia de Archivo Animus">
+</div>
+
+  <div class="hero-title">
+    ARCHIVO <span>ANIMUS</span>
+  </div>
+
+  <div class="hero-divider">
+    <span></span>
+    <i>◇</i>
+    <span></span>
+  </div>
+
+  <h2 class="hero-tagline">LA HISTORIA DE LA HERMANDAD</h2>
+
+  <div class="hero-divider">
+    <span></span>
+    <i>◇</i>
+    <span></span>
+  </div>
+
+  <p class="hero-description">
+    GUÍAS, ANÁLISIS Y CONTENIDO SOBRE TODOS LOS JUEGOS
+    DEL UNIVERSO ASSASSIN'S CREED
+  </p>
+
+  <a class="hero-button" href="#juegos">
+    EXPLORAR LA SAGA <span>→</span>
+  </a>
+
+  </div>
+ </div>
+
+  <section id="noticias">
+    <div class="section-heading">
+      <small>EL PRESENTE DE LA HERMANDAD</small>
+      <h2>NOTICIAS Y ACTUALIDAD</h2>
+      <p>Descubre novedades, curiosidades y artículos sobre el universo Assassin's Creed.</p>
+    </div>
+
+    <div class="news-grid">
+      <article class="news-card">
+        <img class="news-image"
+          src="imagenes/fondos/Captura%20de%20pantalla%202026-11-18%20033439.png"
+          alt="Universo Assassin's Creed">
+        <div class="news-content">
+          <span class="category">REPORTAJE</span>
+          <h3>Un universo que conecta generaciones</h3>
+          <p>Desde los primeros pasos de Altaïr hasta las aventuras más recientes, repasamos el legado de la saga.</p>
+          <a class="read-more" href="#historia">EXPLORAR HISTORIA →</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img class="news-image"
+          src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033502.png"
+          alt="Altaïr">
+        <div class="news-content">
+          <span class="category">PERSONAJES</span>
+          <h3>Altaïr: el origen de una leyenda</h3>
+          <p>Conoce al asesino que marcó el comienzo de una de las historias más conocidas de los videojuegos.</p>
+          <a class="read-more" href="#personajes">CONOCER PERSONAJES →</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img class="news-image"
+          src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033519.png"
+          alt="Kassandra">
+        <div class="news-content">
+          <span class="category">CIVILIZACIONES</span>
+          <h3>Viaje a la antigua Grecia</h3>
+          <p>Descubre una de las épocas históricas que dieron vida a las aventuras de Assassin's Creed.</p>
+          <a class="read-more" href="#juegos">DESCUBRIR JUEGOS →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="archive-section" id="juegos">
+    <div class="archive-inner">
+      <div class="section-heading">
+        <small>ENCUENTRA TU CAMINO</small>
+        <h2>EXPLORA EL ARCHIVO</h2>
+        <p>Tres formas de recorrer la historia de la Hermandad.</p>
+      </div>
+
+      <div class="archive-grid">
+        <a class="archive-card" href="#clasico">
+          <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033502.png" alt="Altaïr">
+          <div class="archive-overlay">
+            <h3>CLÁSICO</h3>
+            <p>El nacimiento de la Hermandad y sus primeros grandes asesinos.</p>
+          </div>
+        </a>
+
+        <a class="archive-card" href="#historico">
+          <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033519.png" alt="Kassandra">
+          <div class="archive-overlay">
+            <h3>HISTÓRICO</h3>
+            <p>Imperios, civilizaciones y épocas que dejaron huella.</p>
+          </div>
+        </a>
+
+        <a class="archive-card" href="#rpg">
+          <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033532.png" alt="Bayek">
+          <div class="archive-overlay">
+            <h3>RPG</h3>
+            <p>Grandes mundos abiertos y aventuras a tu propio ritmo.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section id="personajes">
+    <div class="section-heading">
+      <small>ROSTROS DE LA HISTORIA</small>
+      <h2>PERSONAJES DESTACADOS</h2>
+      <p>Detrás de cada época hay personas que cambiaron el curso de la historia.</p>
+    </div>
+
+    <div class="characters-grid">
+      <article class="character-card">
+        <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033502.png" alt="Altaïr">
+        <div>
+          <h3>ALTAÏR IBN-LA'AHAD</h3>
+          <p>La primera gran leyenda de la Hermandad.</p>
+        </div>
+      </article>
+
+      <article class="character-card">
+        <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033519.png" alt="Kassandra">
+        <div>
+          <h3>KASSANDRA</h3>
+          <p>Una mercenaria en la antigua Grecia.</p>
+        </div>
+      </article>
+
+      <article class="character-card">
+        <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033532.png" alt="Bayek">
+        <div>
+          <h3>BAYEK DE SIWA</h3>
+          <p>Uno de los orígenes de la Hermandad.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="universe" id="universo">
+    <div class="universe-inner">
+      <div class="eyebrow">NADA ES VERDAD. TODO ESTÁ PERMITIDO.</div>
+      <h2>LA HISTORIA NUNCA SE OLVIDA</h2>
+      <p>
+        Organizaciones, artefactos, conspiraciones y secretos.
+        Adéntrate en el universo que existe más allá de los videojuegos.
+      </p>
+      <a class="button" href="#historia">ENTRAR EN EL UNIVERSO</a>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="section-heading">
+      <small>EL PASADO NOS DEFINE</small>
+      <h2>UN VIAJE A TRAVÉS DEL TIEMPO</h2>
+      <p>Explora las épocas y civilizaciones que han servido de escenario a la saga.</p>
+      <a class="read-more" href="#juegos">RECORRER LAS ÉPOCAS →</a>
+    </div>
+  </section>
+
+  <section id="guias">
+    <div class="section-heading">
+      <small>CONOCIMIENTO DEL ANIMUS</small>
+      <h2>GUÍAS Y SECRETOS</h2>
+      <p>Consejos, coleccionables, curiosidades y secretos para descubrir cada rincón de la saga.</p>
+    </div>
+  </section>
+
+  <section id="tienda">
+    <div class="section-heading">
+      <small>OBJETOS DE LA HERMANDAD</small>
+      <h2>TIENDA DEL ANIMUS</h2>
+      <p>Una selección de videojuegos, libros, figuras y artículos para los seguidores de Assassin's Creed.</p>
+      <a class="button" href="#tienda">PRÓXIMAMENTE</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">ARCHIVO <span>ANIMUS</span></div>
+  <p>Una enciclopedia dedicada al universo de Assassin's Creed.</p>
+  <p>Proyecto independiente y no oficial, sin afiliación con Ubisoft.</p>
+  <p>© 2026 ARCHIVO ANIMUS · LA HISTORIA NUNCA SE OLVIDA</p>
+</footer>
+
+</body>
+</html>
