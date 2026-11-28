@@ -1,719 +1,188 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Archivo Animus | La memoria de la Hermandad</title>
-<meta name="description" content="Enciclopedia de Assassin's Creed. Descubre sus juegos, personajes, historia, secretos y noticias.">
-
-<style>
-:root {
-  --black: #080808;
-  --panel: #141414;
-  --red: #a71920;
-  --white: #f5f5f5;
-  --grey: #aaa;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(8, 8, 8, 0.98);
-  border-bottom: 2px solid #A71920;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-}
-
-.header-inner {
-  max-width: 1400px;
-  margin: auto;
-  padding: 20px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.logo img {
-  display: block;
-  width: 250px;
-  height: auto;
-  max-width: 100%;
-}
-
-.logo span { color: var(--red); }
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 19px;
-}
-
-nav a {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  color: #E5E0D7;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: color .3s ease;
-  position: relative;
-  padding: 8px 0;
-}
-
-nav a:hover {
-  color: #D8B56D;
-}
-
-
-.hero {
-  min-height: 690px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-background-image:
-  linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.65)),
-  url("imagenes/fondos/portada-principal.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.hero-content {
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
-  padding: 55px 25px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero-symbol {
-  margin-bottom: 12px;
-}
-
-.hero-symbol img {
-  display: block;
-  width: 125px;
-  height: auto;
-  margin: 0 auto;
-  filter: drop-shadow(0 0 12px rgba(180, 35, 43, 0.5));
-}
-
-.hero-title {
-  font-family: Georgia, serif;
-  font-size: clamp(48px, 7vw, 88px);
-  color: #F5F0E8;
-  letter-spacing: 5px;
-  line-height: 1;
-  font-weight: normal;
-  text-shadow: 0 4px 15px #000;
-}
-
-.hero-title span {
-  display: block;
-  color: #A71920;
-  margin-top: 5px;
-}
-
-.hero-divider {
-  width: min(580px, 85%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 22px 0;
-}
-
-.hero-divider span {
-  height: 1px;
-  flex: 1;
-  background: linear-gradient(90deg, transparent, #D8B56D);
-}
-
-.hero-divider span:last-child {
-  background: linear-gradient(90deg, #D8B56D, transparent);
-}
-
-.hero-divider i {
-  color: #D8B56D;
-  font-size: 23px;
-  font-style: normal;
-}
-
-.hero-tagline {
-  color: #E5C98B;
-  font-family: Georgia, serif;
-  font-size: clamp(19px, 3vw, 29px);
-  letter-spacing: 5px;
-  font-weight: normal;
-  margin: 0;
-  text-shadow: 0 3px 10px #000;
-}
-
-.hero-description {
-  color: #F5F0E8;
-  font-family: Georgia, serif;
-  font-size: 17px;
-  letter-spacing: 2px;
-  line-height: 1.7;
-  max-width: 650px;
-  margin: 0 auto;
-  text-shadow: 0 3px 10px #000;
-}
-
-.hero-button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 17px 38px;
-  background: linear-gradient(#B4232B, #821820);
-  border: 1px solid #D8B56D;
-  color: #fff;
-  font-family: Georgia, serif;
-  font-size: 17px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  transition: .3s ease;
-  box-shadow: 0 5px 20px rgba(0,0,0,.4);
-}
-
-.hero-button:hover {
-  background: #C62828;
-  transform: translateY(-3px);
-}
-
-.eyebrow {
-  color: #d34a50;
-  font-size: 12px;
-  letter-spacing: 4px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 7vw, 82px);
-  line-height: 1.05;
-  max-width: 800px;
-  letter-spacing: 2px;
-}
-
-.hero h1 span { color: var(--red); }
-
-.hero p {
-  color: #ddd;
-  max-width: 600px;
-  margin-top: 25px;
-  font-size: 17px;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 32px;
-  padding: 14px 25px;
-  background: var(--red);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  transition: .2s;
-}
-
-.button:hover { background: #c62828; }
-
-section {
-  max-width: 1400px;
-  margin: auto;
-  padding: 85px 6%;
-}
-
-.section-heading {
-  margin-bottom: 35px;
-}
-
-.section-heading small {
-  color: #d34a50;
-  letter-spacing: 3px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.section-heading h2 {
-  font-size: clamp(27px, 4vw, 39px);
-  margin-top: 8px;
-  letter-spacing: 1px;
-}
-
-.section-heading p {
-  color: var(--grey);
-  margin-top: 10px;
-  max-width: 650px;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 20px;
-}
-
-.news-card {
-  background: var(--panel);
-  border: 1px solid #252525;
-  transition: .25s;
-}
-
-.news-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--red);
-}
-
-.news-image {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  display: block;
-}
-
-.news-card:first-child .news-image { height: 260px; }
-
-.news-content { padding: 22px; }
-
-.category {
-  color: #d34a50;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.news-content h3 {
-  font-size: 19px;
-  margin: 10px 0;
-}
-
-.news-content p {
-  color: var(--grey);
-  font-size: 13px;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 18px;
-  color: #fff;
-  font-size: 11px;
-  letter-spacing: 1px;
-  border-bottom: 1px solid var(--red);
-  padding-bottom: 4px;
-}
-
-.archive-section {
-  background: #101010;
-  max-width: none;
-}
-
-.archive-inner {
-  max-width: 1400px;
-  margin: auto;
-}
-
-.archive-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.archive-card {
-  min-height: 390px;
-  position: relative;
-  overflow: hidden;
-  background: #222;
-}
-
-.archive-card img {
-  width: 100%;
-  height: 390px;
-  object-fit: cover;
-  display: block;
-  transition: .5s;
-}
-
-.archive-card:hover img { transform: scale(1.06); }
-
-.archive-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 28px;
-  background: linear-gradient(transparent 15%, rgba(0,0,0,.95));
-}
-
-.archive-overlay h3 {
-  font-size: 25px;
-  letter-spacing: 2px;
-}
-
-.archive-overlay p {
-  color: #ccc;
-  font-size: 13px;
-  margin-top: 8px;
-}
-
-.characters-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.character-card {
-  background: var(--panel);
-  text-align: center;
-  border: 1px solid #252525;
-}
-
-.character-card img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-}
-
-.character-card div { padding: 20px; }
-
-.character-card h3 {
-  font-size: 21px;
-  letter-spacing: 2px;
-}
-
-.character-card p {
-  color: var(--grey);
-  font-size: 13px;
-}
-
-.universe {
-  text-align: center;
-  background:
-    linear-gradient(rgba(0,0,0,.83), rgba(0,0,0,.9)),
-    url("imagenes/fondos/Captura%20de%20pantalla%202026-11-17%20041523.png")
-    center / cover;
-  max-width: none;
-}
-
-.universe-inner {
-  max-width: 850px;
-  margin: auto;
-}
-
-.universe h2 {
-  font-size: clamp(28px, 5vw, 45px);
-  letter-spacing: 2px;
-}
-
-.universe p {
-  color: #ccc;
-  margin-top: 18px;
-}
-
-footer {
-  border-top: 1px solid #292929;
-  padding: 45px 6%;
-  text-align: center;
-  color: #777;
-  font-size: 12px;
-}
-
-.footer-logo {
-  font-size: 20px;
-  letter-spacing: 4px;
-  color: white;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.footer-logo span { color: var(--red); }
-
-footer p { margin-top: 8px; }
-
-@media (max-width: 900px) {
-  .header-inner {
-    flex-direction: column;
-  }
-
-  nav { justify-content: center; }
-
-  .news-grid { grid-template-columns: 1fr 1fr; }
-
-  .news-card:first-child { grid-column: span 2; }
-
-  .archive-grid, .characters-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero { min-height: 570px; }
-
-  .hero-content { padding: 65px 7%; }
-
-  nav { gap: 12px; }
-
-  nav a { font-size: 10px; }
-
-  .news-grid, .archive-grid, .characters-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .news-card:first-child { grid-column: auto; }
-
-  section { padding: 60px 6%; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos | Archivo Animus</title>
+  <meta name="description" content="Explora los videojuegos de Assassin's Creed en orden de lanzamiento y orden histórico. Consulta sus fichas y plataformas disponibles.">
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
-
 <body>
 
 <header>
   <div class="header-inner">
-    <a class="logo" href="#">
-  <img src="imagenes/logo-archivo-animus.png" alt="Archivo Animus">
-</a>
-
+    <a class="logo" href="index.html">
+      <img src="imagenes/logo-archivo-animus.png" alt="Archivo Animus">
+    </a>
     <nav>
-      <a href="#">INICIO</a>
-      <a href="#juegos">JUEGOS</a>
-      <a href="#personajes">PERSONAJES</a>
-      <a href="#historia">HISTORIA</a>
-      <a href="#universo">UNIVERSO</a>
-      <a href="#guias">GUÍAS</a>
-      <a href="#noticias">NOTICIAS</a>
-      <a href="#tienda">TIENDA</a>
+      <a href="index.html">INICIO</a>
+      <a href="juegos.html" aria-current="page">JUEGOS</a>
+      <a href="personajes.html">PERSONAJES</a>
+      <a href="historia.html">HISTORIA</a>
+      <a href="universo.html">UNIVERSO</a>
+      <a href="guias.html">GUÍAS</a>
+      <a href="noticias.html">NOTICIAS</a>
+      <a href="tienda.html">TIENDA</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main class="games-page">
+  <section class="games-hero">
+    <div class="games-kicker">EL ARCHIVO DE LA HERMANDAD</div>
+    <h1>CATÁLOGO DE <span>JUEGOS</span></h1>
+    <p>Recorre la saga de Assassin's Creed de dos maneras: siguiendo la fecha en la que se publicó cada aventura o viajando por las épocas históricas que recrea.</p>
+    <div class="games-hero-links">
+      <a class="hero-button" href="#lanzamiento">ORDEN DE LANZAMIENTO</a>
+      <a class="hero-button games-button-secondary" href="#historico">ORDEN HISTÓRICO</a>
+    </div>
+  </section>
 
- <div class="hero">
-  <div class="hero-content">
-
-  <div class="hero-symbol">
-  <img src="imagenes/fondos/insignia-animus.png" alt="Insignia de Archivo Animus">
-</div>
-
-  <div class="hero-title">
-    ARCHIVO <span>ANIMUS</span>
-  </div>
-
-  <div class="hero-divider">
-    <span></span>
-    <i>◇</i>
-    <span></span>
-  </div>
-
-  <h2 class="hero-tagline">LA HISTORIA DE LA HERMANDAD</h2>
-
-  <div class="hero-divider">
-    <span></span>
-    <i>◇</i>
-    <span></span>
-  </div>
-
-  <p class="hero-description">
-    GUÍAS, ANÁLISIS Y CONTENIDO SOBRE TODOS LOS JUEGOS
-    DEL UNIVERSO ASSASSIN'S CREED
-  </p>
-
-  <a class="hero-button" href="#juegos">
-    EXPLORAR LA SAGA <span>→</span>
-  </a>
-
-  </div>
- </div>
-
-  <section id="noticias">
+  <section class="games-intro">
     <div class="section-heading">
-      <small>EL PRESENTE DE LA HERMANDAD</small>
-      <h2>NOTICIAS Y ACTUALIDAD</h2>
-      <p>Descubre novedades, curiosidades y artículos sobre el universo Assassin's Creed.</p>
+      <small>ELIGE TU FORMA DE EXPLORAR</small>
+      <h2>DOS CAMINOS. UNA MISMA HISTORIA.</h2>
+      <p>Las listas incluyen las entregas principales y algunas expansiones narrativas destacadas. Las fechas indican el lanzamiento original aproximado y la época representada en la historia.</p>
     </div>
-
-    <div class="news-grid">
-      <article class="news-card">
-        <img class="news-image"
-          src="imagenes/fondos/Captura%20de%20pantalla%202026-11-18%20033439.png"
-          alt="Universo Assassin's Creed">
-        <div class="news-content">
-          <span class="category">REPORTAJE</span>
-          <h3>Un universo que conecta generaciones</h3>
-          <p>Desde los primeros pasos de Altaïr hasta las aventuras más recientes, repasamos el legado de la saga.</p>
-          <a class="read-more" href="#historia">EXPLORAR HISTORIA →</a>
-        </div>
-      </article>
-
-      <article class="news-card">
-        <img class="news-image"
-          src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033502.png"
-          alt="Altaïr">
-        <div class="news-content">
-          <span class="category">PERSONAJES</span>
-          <h3>Altaïr: el origen de una leyenda</h3>
-          <p>Conoce al asesino que marcó el comienzo de una de las historias más conocidas de los videojuegos.</p>
-          <a class="read-more" href="#personajes">CONOCER PERSONAJES →</a>
-        </div>
-      </article>
-
-      <article class="news-card">
-        <img class="news-image"
-          src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033519.png"
-          alt="Kassandra">
-        <div class="news-content">
-          <span class="category">CIVILIZACIONES</span>
-          <h3>Viaje a la antigua Grecia</h3>
-          <p>Descubre una de las épocas históricas que dieron vida a las aventuras de Assassin's Creed.</p>
-          <a class="read-more" href="#juegos">DESCUBRIR JUEGOS →</a>
-        </div>
-      </article>
+    <div class="games-jump-grid">
+      <a href="#lanzamiento" class="games-jump-card">
+        <span class="games-jump-number">01</span>
+        <strong>Orden de lanzamiento</strong>
+        <span>Desde el primer Assassin's Creed hasta la entrega más reciente.</span>
+      </a>
+      <a href="#historico" class="games-jump-card">
+        <span class="games-jump-number">02</span>
+        <strong>Orden histórico</strong>
+        <span>Desde la Antigüedad hasta la Edad Moderna.</span>
+      </a>
     </div>
   </section>
 
-  <div class="archive-section" id="juegos">
-    <div class="archive-inner">
-      <div class="section-heading">
-        <small>ENCUENTRA TU CAMINO</small>
-        <h2>EXPLORA EL ARCHIVO</h2>
-        <p>Tres formas de recorrer la historia de la Hermandad.</p>
-      </div>
-
-      <div class="archive-grid">
-        <a class="archive-card" href="#clasico">
-          <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033502.png" alt="Altaïr">
-          <div class="archive-overlay">
-            <h3>CLÁSICO</h3>
-            <p>El nacimiento de la Hermandad y sus primeros grandes asesinos.</p>
-          </div>
-        </a>
-
-        <a class="archive-card" href="#historico">
-          <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033519.png" alt="Kassandra">
-          <div class="archive-overlay">
-            <h3>HISTÓRICO</h3>
-            <p>Imperios, civilizaciones y épocas que dejaron huella.</p>
-          </div>
-        </a>
-
-        <a class="archive-card" href="#rpg">
-          <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033532.png" alt="Bayek">
-          <div class="archive-overlay">
-            <h3>RPG</h3>
-            <p>Grandes mundos abiertos y aventuras a tu propio ritmo.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <section id="personajes">
+  <section class="games-list-section" id="lanzamiento">
     <div class="section-heading">
-      <small>ROSTROS DE LA HISTORIA</small>
-      <h2>PERSONAJES DESTACADOS</h2>
-      <p>Detrás de cada época hay personas que cambiaron el curso de la historia.</p>
+      <small>RECORRIDO EDITORIAL</small>
+      <h2>ORDEN DE LANZAMIENTO</h2>
+      <p>El orden recomendado para descubrir cómo evolucionó la saga desde su debut.</p>
     </div>
 
-    <div class="characters-grid">
-      <article class="character-card">
-        <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033502.png" alt="Altaïr">
-        <div>
-          <h3>ALTAÏR IBN-LA'AHAD</h3>
-          <p>La primera gran leyenda de la Hermandad.</p>
-        </div>
-      </article>
-
-      <article class="character-card">
-        <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033519.png" alt="Kassandra">
-        <div>
-          <h3>KASSANDRA</h3>
-          <p>Una mercenaria en la antigua Grecia.</p>
-        </div>
-      </article>
-
-      <article class="character-card">
-        <img src="imagenes/tarjetas/Captura%20de%20pantalla%202026-11-18%20033532.png" alt="Bayek">
-        <div>
-          <h3>BAYEK DE SIWA</h3>
-          <p>Uno de los orígenes de la Hermandad.</p>
-        </div>
-      </article>
+    <div class="games-list">
+      <a class="game-row game-row-link" href="juegos/assassins-creed.html" aria-label="Abrir guía de Assassin's Creed">
+        <div class="game-index">01</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-013906.png" alt="Carátula de Assassin's Creed" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2007 · TIERRA SANTA, 1191</span><h3>Assassin's Creed</h3><p>El comienzo de la saga con Altaïr Ibn-La'Ahad durante la Tercera Cruzada.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/assassins-creed-ii.html" aria-label="Abrir guía de Assassin's Creed II">
+        <div class="game-index">02</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-020219.png" alt="Carátula de Assassin's Creed II" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2009 · ITALIA, 1476–1499</span><h3>Assassin's Creed II</h3><p>Ezio Auditore comienza su camino de venganza y descubre el legado de los Asesinos.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/brotherhood.html" aria-label="Abrir guía de Assassin's Creed Brotherhood">
+        <div class="game-index">03</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-020235.png" alt="Carátula de Assassin's Creed Brotherhood" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2010 · ROMA, 1499–1507</span><h3>Assassin's Creed Brotherhood</h3><p>Ezio lucha contra los Borgia y reconstruye la Hermandad en Roma.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/revelations.html" aria-label="Abrir guía de Assassin's Creed Revelations">
+        <div class="game-index">04</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-020259.png" alt="Carátula de Assassin's Creed Revelations" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2011 · CONSTANTINOPLA, 1511</span><h3>Assassin's Creed Revelations</h3><p>Ezio sigue las huellas de Altaïr en una aventura que conecta sus destinos.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/assassins-creed-iii.html" aria-label="Abrir guía de Assassin's Creed III">
+        <div class="game-index">05</div><div class="game-cover"><img src="https://www.powerupgaming.ca/cdn/shop/products/181484_front.jpg?v=1729981426" alt="Carátula de Assassin's Creed III" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2012 · AMÉRICA, 1754–1783</span><h3>Assassin's Creed III</h3><p>Ratonhnhaké:ton, conocido como Connor, vive la Revolución estadounidense.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/liberation.html" aria-label="Abrir guía de Assassin's Creed III: Liberation">
+        <div class="game-index">06</div><div class="game-cover"><img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/99/UP0001-NPUB31244_00-ACLIBERATIONHDKY/0/image?_version=00_09_000&bg_color=000000&h=720&opacity=100&platform=chihiro&w=720" alt="Carátula de Assassin's Creed III: Liberation" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2012 · NUEVA ORLEANS, 1765–1780</span><h3>Assassin's Creed III: Liberation</h3><p>Aveline de Grandpré protagoniza una historia ambientada en la Luisiana del siglo XVIII.</p><div class="game-platforms">PC · PLAYSTATION · XBOX · DISPONIBILIDAD SEGÚN EDICIÓN</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/black-flag.html" aria-label="Abrir guía de Assassin's Creed IV: Black Flag">
+        <div class="game-index">07</div><div class="game-cover"><img src="https://www.gameshop.my/cdn/shop/products/ps4_assassin_creed_iv_black_flag.jpg?v=1591178201" alt="Carátula de Assassin's Creed IV: Black Flag" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2013 · CARIBE, 1715–1722</span><h3>Assassin's Creed IV: Black Flag</h3><p>Edward Kenway navega por el Caribe durante la Edad de Oro de la piratería.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/freedom-cry.html" aria-label="Abrir guía de Assassin's Creed Freedom Cry">
+        <div class="game-index">08</div><div class="game-cover"><img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/en/99/UP0001-NPUB31450_00-ACBFDLCSPSA00001/0/image?_version=00_09_000&bg_color=000000&h=720&opacity=100&platform=chihiro&w=720" alt="Carátula de Assassin's Creed Freedom Cry" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2013 · CARIBE, 1735</span><h3>Assassin's Creed Freedom Cry</h3><p>La expansión independiente sigue a Adéwalé en su lucha contra la esclavitud.</p><div class="game-platforms">PC · PLAYSTATION · XBOX · DISPONIBILIDAD SEGÚN EDICIÓN</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/rogue.html" aria-label="Abrir guía de Assassin's Creed Rogue">
+        <div class="game-index">09</div><div class="game-cover"><img src="https://psgames.ca/images/products/ps3-assassins-creed-rogue.jpg" alt="Carátula de Assassin's Creed Rogue" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2014 · ATLÁNTICO NORTE, 1752–1760</span><h3>Assassin's Creed Rogue</h3><p>Shay Patrick Cormac cuestiona a la Hermandad y cambia el rumbo de la guerra entre facciones.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/unity.html" aria-label="Abrir guía de Assassin's Creed Unity">
+        <div class="game-index">10</div><div class="game-cover"><img src="https://i5.walmartimages.com/asr/3ef1514c-7fa2-4898-b284-0f131edc39cf.b4dde454c065764f95854edeb2f76f06.jpeg" alt="Carátula de Assassin's Creed Unity" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2014 · PARÍS, 1789</span><h3>Assassin's Creed Unity</h3><p>Arno Dorian se ve envuelto en la Revolución francesa.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/syndicate.html" aria-label="Abrir guía de Assassin's Creed Syndicate">
+        <div class="game-index">11</div><div class="game-cover"><img src="https://i5.walmartimages.ca/asr/27158639-436d-4d15-8884-7f98c1093cbe.0f2d98a1b1f7e408a37d904ee0c8660a.jpeg" alt="Carátula de Assassin's Creed Syndicate" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2015 · LONDRES, 1868</span><h3>Assassin's Creed Syndicate</h3><p>Jacob y Evie Frye luchan por el control del Londres victoriano.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/origins.html" aria-label="Abrir guía de Assassin's Creed Origins">
+        <div class="game-index">12</div><div class="game-cover"><img src="https://ecommerce.datablitz.com.ph/cdn/shop/files/thdfymd_1024x.jpg?v=1757763332" alt="Carátula de Assassin's Creed Origins" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2017 · EGIPTO, 49–43 A. C.</span><h3>Assassin's Creed Origins</h3><p>Bayek y Aya viven los acontecimientos que dan forma a los orígenes de los Ocultos.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/odyssey.html" aria-label="Abrir guía de Assassin's Creed Odyssey">
+        <div class="game-index">13</div><div class="game-cover"><img src="https://promart.vteximg.com.br/arquivos/ids/5962724-1000-1000/1603927239260.jpg?v=637919781527570000" alt="Carátula de Assassin's Creed Odyssey" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2018 · GRECIA, 431–422 A. C.</span><h3>Assassin's Creed Odyssey</h3><p>Una aventura durante la Guerra del Peloponeso protagonizada por Kassandra o Alexios.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/valhalla.html" aria-label="Abrir guía de Assassin's Creed Valhalla">
+        <div class="game-index">14</div><div class="game-cover"><img src="https://i5.walmartimages.com/seo/Assassin-s-Creed-Valhalla-Xbox-One-Xbox-Series-X_8086024b-2e47-4bbd-9a2e-e58f75dfb15b.7c7c1c3c54410644371c5fcee3103452.jpeg" alt="Carátula de Assassin's Creed Valhalla" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2020 · NORUEGA E INGLATERRA, SIGLO IX</span><h3>Assassin's Creed Valhalla</h3><p>Eivor guía a su clan vikingo en busca de un nuevo hogar en Inglaterra.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/mirage.html" aria-label="Abrir guía de Assassin's Creed Mirage">
+        <div class="game-index">15</div><div class="game-cover"><img src="https://image.smythstoys.com/original/mobile/216571.webp" alt="Carátula de Assassin's Creed Mirage" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2023 · BAGDAD, SIGLO IX</span><h3>Assassin's Creed Mirage</h3><p>Basim pasa de ser un ladrón callejero a formar parte de los Ocultos en Bagdad.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
+      <a class="game-row game-row-link" href="juegos/shadows.html" aria-label="Abrir guía de Assassin's Creed Shadows">
+        <div class="game-index">16</div><div class="game-cover"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202412/2018/e232e9288864451d422210f89ed0536697bd44711648f7a7.jpg" alt="Carátula de Assassin's Creed Shadows" loading="lazy"></div>
+        <div class="game-info"><span class="game-era">2025 · JAPÓN, 1579 EN ADELANTE</span><h3>Assassin's Creed Shadows</h3><p>Naoe y Yasuke protagonizan dos perspectivas distintas del Japón del periodo Sengoku.</p><div class="game-platforms">PC · PLAYSTATION 5 · XBOX SERIES X|S</div></div>
+        <div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div>
+      </a>
     </div>
   </section>
 
-  <section class="universe" id="universo">
-    <div class="universe-inner">
-      <div class="eyebrow">NADA ES VERDAD. TODO ESTÁ PERMITIDO.</div>
-      <h2>LA HISTORIA NUNCA SE OLVIDA</h2>
-      <p>
-        Organizaciones, artefactos, conspiraciones y secretos.
-        Adéntrate en el universo que existe más allá de los videojuegos.
-      </p>
-      <a class="button" href="#historia">ENTRAR EN EL UNIVERSO</a>
-    </div>
-  </section>
-
-  <section id="historia">
+  <section class="games-list-section games-history-section" id="historico">
     <div class="section-heading">
-      <small>EL PASADO NOS DEFINE</small>
-      <h2>UN VIAJE A TRAVÉS DEL TIEMPO</h2>
-      <p>Explora las épocas y civilizaciones que han servido de escenario a la saga.</p>
-      <a class="read-more" href="#juegos">RECORRER LAS ÉPOCAS →</a>
+      <small>UN VIAJE POR LAS MEMORIAS DEL ANIMUS</small>
+      <h2>ORDEN HISTÓRICO</h2>
+      <p>Ordenados según la época en la que transcurren sus historias. Algunas aventuras se solapan en el tiempo.</p>
+    </div>
+
+    <div class="games-list">
+      <a class="game-row game-row-link" href="juegos/odyssey.html" aria-label="Abrir guía de Assassin's Creed Odyssey"><div class="game-index">01</div><div class="game-cover"><img src="https://promart.vteximg.com.br/arquivos/ids/5962724-1000-1000/1603927239260.jpg?v=637919781527570000" alt="Carátula de Assassin's Creed Odyssey" loading="lazy"></div><div class="game-info"><span class="game-era">431–422 A. C. · GRECIA</span><h3>Assassin's Creed Odyssey</h3><p>La Guerra del Peloponeso y el viaje de Kassandra o Alexios.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/origins.html" aria-label="Abrir guía de Assassin's Creed Origins"><div class="game-index">02</div><div class="game-cover"><img src="https://ecommerce.datablitz.com.ph/cdn/shop/files/thdfymd_1024x.jpg?v=1757763332" alt="Carátula de Assassin's Creed Origins" loading="lazy"></div><div class="game-info"><span class="game-era">49–43 A. C. · EGIPTO</span><h3>Assassin's Creed Origins</h3><p>Los acontecimientos que conducen al nacimiento de los Ocultos.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/mirage.html" aria-label="Abrir guía de Assassin's Creed Mirage"><div class="game-index">03</div><div class="game-cover"><img src="https://image.smythstoys.com/original/mobile/216571.webp" alt="Carátula de Assassin's Creed Mirage" loading="lazy"></div><div class="game-info"><span class="game-era">C. 861 · BAGDAD</span><h3>Assassin's Creed Mirage</h3><p>La transformación de Basim en la Bagdad del Califato abasí.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/valhalla.html" aria-label="Abrir guía de Assassin's Creed Valhalla"><div class="game-index">04</div><div class="game-cover"><img src="https://i5.walmartimages.com/seo/Assassin-s-Creed-Valhalla-Xbox-One-Xbox-Series-X_8086024b-2e47-4bbd-9a2e-e58f75dfb15b.7c7c1c3c54410644371c5fcee3103452.jpeg" alt="Carátula de Assassin's Creed Valhalla" loading="lazy"></div><div class="game-info"><span class="game-era">872–878 · NORUEGA E INGLATERRA</span><h3>Assassin's Creed Valhalla</h3><p>La expansión vikinga y el asentamiento de Eivor en Inglaterra.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/assassins-creed.html" aria-label="Abrir guía de Assassin's Creed"><div class="game-index">05</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-013906.png" alt="Carátula de Assassin's Creed" loading="lazy"></div><div class="game-info"><span class="game-era">1191 · TIERRA SANTA</span><h3>Assassin's Creed</h3><p>Altaïr durante la Tercera Cruzada.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/assassins-creed-ii.html" aria-label="Abrir guía de Assassin's Creed II"><div class="game-index">06</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-020219.png" alt="Carátula de Assassin's Creed II" loading="lazy"></div><div class="game-info"><span class="game-era">1476–1499 · ITALIA</span><h3>Assassin's Creed II</h3><p>Los primeros años de Ezio Auditore.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/brotherhood.html" aria-label="Abrir guía de Assassin's Creed Brotherhood"><div class="game-index">07</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-020235.png" alt="Carátula de Assassin's Creed Brotherhood" loading="lazy"></div><div class="game-info"><span class="game-era">1499–1507 · ROMA</span><h3>Assassin's Creed Brotherhood</h3><p>Ezio reconstruye la Hermandad en Roma.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/revelations.html" aria-label="Abrir guía de Assassin's Creed Revelations"><div class="game-index">08</div><div class="game-cover"><img src="https://archivoanimus.wordpress.com/wp-content/uploads/2026/11/captura-de-pantalla-2026-11-18-020259.png" alt="Carátula de Assassin's Creed Revelations" loading="lazy"></div><div class="game-info"><span class="game-era">1511 · CONSTANTINOPLA</span><h3>Assassin's Creed Revelations</h3><p>El último viaje de Ezio y los recuerdos de Altaïr.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/shadows.html" aria-label="Abrir guía de Assassin's Creed Shadows"><div class="game-index">09</div><div class="game-cover"><img src="https://image.api.playstation.com/vulcan/ap/rnd/202412/2018/e232e9288864451d422210f89ed0536697bd44711648f7a7.jpg" alt="Carátula de Assassin's Creed Shadows" loading="lazy"></div><div class="game-info"><span class="game-era">1579 EN ADELANTE · JAPÓN</span><h3>Assassin's Creed Shadows</h3><p>Naoe y Yasuke durante el periodo Sengoku.</p><div class="game-platforms">PC · PLAYSTATION 5 · XBOX SERIES X|S</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/black-flag.html" aria-label="Abrir guía de Assassin's Creed IV: Black Flag"><div class="game-index">10</div><div class="game-cover"><img src="https://www.gameshop.my/cdn/shop/products/ps4_assassin_creed_iv_black_flag.jpg?v=1591178201" alt="Carátula de Assassin's Creed IV: Black Flag" loading="lazy"></div><div class="game-info"><span class="game-era">1715–1722 · CARIBE</span><h3>Assassin's Creed IV: Black Flag</h3><p>La Edad de Oro de la piratería a través de Edward Kenway.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/freedom-cry.html" aria-label="Abrir guía de Assassin's Creed Freedom Cry"><div class="game-index">11</div><div class="game-cover"><img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/en/99/UP0001-NPUB31450_00-ACBFDLCSPSA00001/0/image?_version=00_09_000&bg_color=000000&h=720&opacity=100&platform=chihiro&w=720" alt="Carátula de Assassin's Creed Freedom Cry" loading="lazy"></div><div class="game-info"><span class="game-era">1735 · CARIBE</span><h3>Assassin's Creed Freedom Cry</h3><p>La historia de Adéwalé, derivada de Black Flag.</p><div class="game-platforms">PC · PLAYSTATION · XBOX · SEGÚN EDICIÓN</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/rogue.html" aria-label="Abrir guía de Assassin's Creed Rogue"><div class="game-index">12</div><div class="game-cover"><img src="https://psgames.ca/images/products/ps3-assassins-creed-rogue.jpg" alt="Carátula de Assassin's Creed Rogue" loading="lazy"></div><div class="game-info"><span class="game-era">1752–1760 · ATLÁNTICO NORTE</span><h3>Assassin's Creed Rogue</h3><p>La ruptura de Shay con la Hermandad.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/assassins-creed-iii.html" aria-label="Abrir guía de Assassin's Creed III"><div class="game-index">13</div><div class="game-cover"><img src="https://www.powerupgaming.ca/cdn/shop/products/181484_front.jpg?v=1729981426" alt="Carátula de Assassin's Creed III" loading="lazy"></div><div class="game-info"><span class="game-era">1754–1783 · AMÉRICA</span><h3>Assassin's Creed III</h3><p>Connor durante la Revolución estadounidense.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/liberation.html" aria-label="Abrir guía de Assassin's Creed III: Liberation"><div class="game-index">14</div><div class="game-cover"><img src="https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/99/UP0001-NPUB31244_00-ACLIBERATIONHDKY/0/image?_version=00_09_000&bg_color=000000&h=720&opacity=100&platform=chihiro&w=720" alt="Carátula de Assassin's Creed III: Liberation" loading="lazy"></div><div class="game-info"><span class="game-era">1765–1780 · NUEVA ORLEANS</span><h3>Assassin's Creed III: Liberation</h3><p>La historia de Aveline de Grandpré en Luisiana.</p><div class="game-platforms">PC · PLAYSTATION · XBOX · SEGÚN EDICIÓN</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/unity.html" aria-label="Abrir guía de Assassin's Creed Unity"><div class="game-index">15</div><div class="game-cover"><img src="https://i5.walmartimages.com/asr/3ef1514c-7fa2-4898-b284-0f131edc39cf.b4dde454c065764f95854edeb2f76f06.jpeg" alt="Carátula de Assassin's Creed Unity" loading="lazy"></div><div class="game-info"><span class="game-era">1789 · PARÍS</span><h3>Assassin's Creed Unity</h3><p>Arno durante la Revolución francesa.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
+      <a class="game-row game-row-link" href="juegos/syndicate.html" aria-label="Abrir guía de Assassin's Creed Syndicate"><div class="game-index">16</div><div class="game-cover"><img src="https://i5.walmartimages.ca/asr/27158639-436d-4d15-8884-7f98c1093cbe.0f2d98a1b1f7e408a37d904ee0c8660a.jpeg" alt="Carátula de Assassin's Creed Syndicate" loading="lazy"></div><div class="game-info"><span class="game-era">1868 · LONDRES</span><h3>Assassin's Creed Syndicate</h3><p>Los gemelos Frye en la Revolución industrial.</p><div class="game-platforms">PC · PLAYSTATION · XBOX</div></div><div class="game-action"><span class="game-buy-disabled">COMPRA PRÓXIMAMENTE</span></div></a>
     </div>
   </section>
 
-  <section id="guias">
-    <div class="section-heading">
-      <small>CONOCIMIENTO DEL ANIMUS</small>
-      <h2>GUÍAS Y SECRETOS</h2>
-      <p>Consejos, coleccionables, curiosidades y secretos para descubrir cada rincón de la saga.</p>
+  <section class="games-buy-note" id="compras">
+    <div class="games-buy-note-inner">
+      <small>APOYA EL ARCHIVO</small>
+      <h2>ENCUENTRA TU PRÓXIMA AVENTURA</h2>
+      <p>Estamos preparando una selección de tiendas y ofertas para PC, PlayStation y Xbox. Añadiremos los enlaces de compra, posibles códigos promocionales y avisos de afiliación cuando estén verificados.</p>
     </div>
   </section>
-
-  <section id="tienda">
-    <div class="section-heading">
-      <small>OBJETOS DE LA HERMANDAD</small>
-      <h2>TIENDA DEL ANIMUS</h2>
-      <p>Una selección de videojuegos, libros, figuras y artículos para los seguidores de Assassin's Creed.</p>
-      <a class="button" href="#tienda">PRÓXIMAMENTE</a>
-    </div>
-  </section>
-
 </main>
 
 <footer>
